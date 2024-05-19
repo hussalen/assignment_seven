@@ -403,15 +403,17 @@ namespace LinqTutorials
         ///     HAVING COUNT(*)>2
         ///     ORDER BY COUNT(*) DESC;
         /// </summary>
-        public static IEnumerable<Dept> Task15()
+        public static IEnumerable<object> Task15()
         {
             IEnumerable<Dept> result =
-                from emp in Emps
-                where emp.Job.Contains('A')
-                group emp by emp.Job into gJob
-                where gJob.Count() > 2
-                orderby gJob.Count() descending
-                select new Dept { Dname = gJob.Key, Deptno = gJob.Count() };
+                (IEnumerable<Dept>)(
+                    from emp in Emps
+                    where emp.Job.Contains('A')
+                    group emp by emp.Job into gJob
+                    where gJob.Count() > 2
+                    orderby gJob.Count() descending
+                    select new { Job = gJob.Key, NumberOfEmployees = gJob.Count() }
+                );
             //result =
             return result;
         }
