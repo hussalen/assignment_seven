@@ -59,7 +59,7 @@ namespace LinqTutorials
             var t13 = LinqTasks.Task13([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1]);
             Console.WriteLine(t13);
 
-            Console.WriteLine("Task 14");
+            Console.WriteLine("--Task 14--");
             var t14 = LinqTasks.Task14();
             Console.WriteLine(t14);
             foreach (var item in t14)
@@ -67,14 +67,12 @@ namespace LinqTutorials
                 Console.WriteLine(item.Dname + ": " + item.Deptno);
             }
 
-            Console.WriteLine("Task 15");
-            var t15 = LinqTasks.Task15();
-            foreach (var item in t15)
-            {
-                Console.WriteLine(item.Dname + ": " + item.Deptno);
-            }
+            LinqTasks.Counter += 2;
 
-            Console.WriteLine("Task 16");
+            var t15 = LinqTasks.Task15();
+            t15.Print();
+
+            Console.WriteLine("--Task 16--");
             var t16 = LinqTasks.Task16();
             foreach (var item in t16)
             {
